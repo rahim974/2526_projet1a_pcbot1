@@ -26,7 +26,7 @@ git status
 ### Pousser vos modifications
 
 ```bash
-git add .
+git add .   # À la place du ".", on peut mettre le chemin des fichiers à ajouter
 git commit -m "Message"
 git push
 ```
