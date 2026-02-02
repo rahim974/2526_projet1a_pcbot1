@@ -30,3 +30,9 @@ git add .   # À la place du ".", on peut mettre le chemin des fichiers à ajout
 git commit -m "Message"
 git push
 ```
+
+# Jour 1 
+
+- Choix des fonctionnalités 
+
+  
