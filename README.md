@@ -30,3 +30,11 @@ git add .   # À la place du ".", on peut mettre le chemin des fichiers à ajout
 git commit -m "Message"
 git push
 ```
+
+
+# Test de contribution
+## Modification par Bilal
+> "La configuration SSH et Git est opérationnelle."
+
+---
+*Dernière mise à jour le : 2 février 2026*
