@@ -59,7 +59,7 @@ Le robot donne ses coordonnées et ce qu'il y a devant lui (distances aux obstac
 ## Matériels
 
 - Capteur TOF (repérer ce qu'il y a devant)
-- nRF24N
+- nRF24N https://passionelectronique.fr/tutorial-nrf24l01/
 - Batterie 18650 Samsung (en USB) https://www.nkon.nl/fr/samsung-inr18650-35e-3400mah-8a.html?gad_source=1&gad_campaignid=21554454169&gclid=EAIaIQobChMI94uM95C7kgMVLWlBAh1DugIAEAQYASABEgIlePD_BwE
 - Moteur continue https://www.gotronic.fr/art-motoreducteur-maqueen-v5-48529.htm?srsltid=AfmBOoo6Rrt8KTnTSC0lMwvMVoNbsPc9MDphmUr6xJ-IcqWVbKeVPGag
 - Leds 
