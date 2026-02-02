@@ -40,3 +40,64 @@ git push
 *Dernière mise à jour le : 2 février 2026*
 
  ### choix des composants
+
+
+
+# 2/02/2026
+
+Le robot donne ses coordonnées et ce qu'il y a devant lui (distances aux obstacles).
+
+## Cahier des charges
+
+- Robot doit rouler 
+- Connaitre son environnement (distances aux obstacles) 
+- Connaitre sa vitesse et sa position
+- Pouvoir le charger à une prise 
+- Communiquer en continu via le module nrF24L01
+- Communiquer avec une station de base (angle, distance)
+
+## Matériels
+
+- Capteur TOF (repérer ce qu'il y a devant)
+- nRF24N
+- Batterie 18650 Samsung (en USB)
+- Moteur continue
+- Leds
+- Bouton d'alimentation
+- Prise secteur 
+
+Ne pas utiliser des librairies déjà existantes sauf si très ressemblant.
+
+## Rôles 
+
+- Schéma architectural sur draw.io 
+- Essais capteur TOF
+
+Essais capteur TOF 
+
+I2C entre moteur et accélérateur, driver de batterie
+
+Outil : draw.io 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
