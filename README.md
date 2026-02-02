@@ -31,8 +31,10 @@ git commit -m "Message"
 git push
 ```
 
-# Jour 1 
 
-- Choix des fonctionnalités 
+# Test de contribution
+## Modification par Bilal
+> "La configuration SSH et Git est opérationnelle."
 
-  
+---
+*Dernière mise à jour le : 2 février 2026*
