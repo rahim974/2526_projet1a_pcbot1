@@ -27,7 +27,7 @@ git status
 
 ```bash
 git add .   # À la place du ".", on peut mettre le chemin des fichiers à ajouter
-git commit -m "Message"
+git commit -m "Message (pour indiquer la mise à jour faite)"
 git push
 ```
 
