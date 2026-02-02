@@ -38,3 +38,5 @@ git push
 
 ---
 *Dernière mise à jour le : 2 février 2026*
+
+ ### choix des composants
