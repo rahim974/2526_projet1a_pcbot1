@@ -60,12 +60,13 @@ Le robot donne ses coordonnées et ce qu'il y a devant lui (distances aux obstac
 
 - Capteur TOF (repérer ce qu'il y a devant)
 - nRF24N
-- Batterie 18650 Samsung (en USB)
-- Moteur continue
-- Leds
+- Batterie 18650 Samsung (en USB) https://www.nkon.nl/fr/samsung-inr18650-35e-3400mah-8a.html?gad_source=1&gad_campaignid=21554454169&gclid=EAIaIQobChMI94uM95C7kgMVLWlBAh1DugIAEAQYASABEgIlePD_BwE
+- Moteur continue https://www.gotronic.fr/art-motoreducteur-maqueen-v5-48529.htm?srsltid=AfmBOoo6Rrt8KTnTSC0lMwvMVoNbsPc9MDphmUr6xJ-IcqWVbKeVPGag
+- Leds 
 - Bouton d'alimentation
-- Prise secteur 
-
+- Prise secteur https://www.ti.com/lit/ds/symlink/bq25896.pdf?ts=1769962316849
+- accéléromètre https://www.st.com/en/mems-and-sensors/lsm6dsox.html
+- drivers moteur https://www.ti.com/lit/ds/symlink/drv8411a.pdf?ts=1770046834572&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FDRV8411A%252Fpart-details%252FDRV8411APWPR
 Ne pas utiliser des librairies déjà existantes sauf si très ressemblant.
 
 ## Rôles 
