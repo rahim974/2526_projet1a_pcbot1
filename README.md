@@ -1,5 +1,5 @@
 # 2526_projet1a_pcbot1
-PCBot
+[toc]
 
 ## Memo git
 
@@ -31,21 +31,11 @@ git commit -m "Message (pour indiquer la mise à jour faite)"
 git push
 ```
 
-
-# Test de contribution
-## Modification par Bilal
-> "La configuration SSH et Git est opérationnelle."
-
----
-*Dernière mise à jour le : 2 février 2026*
-
- ### choix des composants
-
-
-
 # 2/02/2026
 
-Le robot donne ses coordonnées et ce qu'il y a devant lui (distances aux obstacles).
+## Rôle du robot 
+
+Le robot donne ses coordonnées et ce qu'il y a devant lui (distances aux obstacles). Il doit envoyer son angle d'inclinaison, sa vitesse, son accélération, sa position, à une base.
 
 ## Cahier des charges
 
