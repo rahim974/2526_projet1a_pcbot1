@@ -1,6 +1,6 @@
 # Principe du Moteur H
 
-<img src="https://raw.githubusercontent.com/elnmoat/images-markdown/main/IMG_4672.JPG" alt="IMG_4672" style="zoom:10%;" />
+<img src="https://raw.githubusercontent.com/elnmoat/images-markdown/main/IMG_4672.JPG" alt="IMG_4672" style="zoom:5%;" />
 
 Quatre MOSFET pour faire tourner le moteur dans les deux sens via deux timers.
 
