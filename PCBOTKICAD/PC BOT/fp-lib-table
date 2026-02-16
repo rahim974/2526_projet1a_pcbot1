@@ -1,0 +1,7 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "BQ25896")(type "KiCad")(uri "/Users/moatsembellhelnemrawi/2526_projet1a_pcbot1/BQ25896/Composant3.pretty")(options "")(descr ""))
+  (lib (name "DRV8411APWPR")(type "KiCad")(uri "/Users/moatsembellhelnemrawi/2526_projet1a_pcbot1/DRV8411APWPR/Composant2.pretty")(options "")(descr ""))
+  (lib (name "B4B-PH-K_LF__SN_")(type "KiCad")(uri "/Users/moatsembellhelnemrawi/2526_projet1a_pcbot1/JST B4B-PH-K_LF__SN_/Composant4.pretty")(options "")(descr ""))
+  (lib (name "LSM6DSOX")(type "KiCad")(uri "/Users/moatsembellhelnemrawi/2526_projet1a_pcbot1/LSM6DSOX/Composant.pretty")(options "")(descr ""))
+)
