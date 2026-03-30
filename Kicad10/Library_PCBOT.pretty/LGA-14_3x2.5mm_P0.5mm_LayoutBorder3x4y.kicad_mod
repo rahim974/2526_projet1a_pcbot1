@@ -1,0 +1,291 @@
+(footprint "LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "LGA, 14 Pin (https://www.st.com/resource/en/datasheet/lsm6ds3tr-c.pdf), generated with kicad-footprint-generator ipc_noLead_generator.py")
+	(tags "LGA NoLead")
+	(property "Reference" "REF**"
+		(at 3.2025 0.09 0)
+		(layer "F.SilkS")
+		(uuid "43bc98ee-b91b-4770-a397-f51cd5aa05d4")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "LSM6DSOX"
+		(at -0.1775 0 0)
+		(layer "F.Fab")
+		(uuid "6bc78713-bf40-402a-82b8-94cc3035fd5e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.st.com/resource/en/datasheet/lsm6dsm.pdf"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "521cf525-f0c4-4580-8051-d8acf89844d2")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "I2C/SPI, iNEMO inertial module: always-on 3D accelerometer and 3D gyroscope, with auxiliary SPI, 1.71V to 3.6V VCC"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f599d06b-f52a-458b-8979-b25e2fc5e626")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -1.61 -1.36)
+		(end -0.935 -1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "95bb17fd-2f37-4d4a-badd-cc22b57c99e3")
+	)
+	(fp_line
+		(start -1.61 -1.185)
+		(end -1.61 -1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d580a7fd-5755-40fa-bbf6-6c4251e93581")
+	)
+	(fp_line
+		(start -1.61 1.36)
+		(end -1.61 1.185)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a2ebbda6-ec95-44ed-9871-e4a211e785bf")
+	)
+	(fp_line
+		(start -0.935 1.36)
+		(end -1.61 1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "97cea827-8756-445c-95d4-4d8a99311cbe")
+	)
+	(fp_line
+		(start 0.935 -1.36)
+		(end 1.61 -1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "49d4b4a3-ca6f-476d-b6d5-bafd7e2d77fc")
+	)
+	(fp_line
+		(start 1.61 -1.36)
+		(end 1.61 -1.185)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "498393c3-07ea-4e88-9123-ae0ef2fd984d")
+	)
+	(fp_line
+		(start 1.61 1.185)
+		(end 1.61 1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "017b2eb4-f52a-4d37-ae04-f8ea6ddd0f6e")
+	)
+	(fp_line
+		(start 1.61 1.36)
+		(end 0.935 1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "62c9807c-1431-4526-8ed8-db0420ad51a5")
+	)
+	(fp_poly
+		(pts
+			(xy -1.74 -0.75) (xy -2.07 -0.51) (xy -2.07 -0.99)
+		)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "25bc6954-5da6-45ff-8b64-641671c92d92")
+	)
+	(fp_rect
+		(start -1.75 -1.5)
+		(end 1.75 1.5)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "5a0ab3d9-1d7a-4048-be66-a2c252584d25")
+	)
+	(fp_poly
+		(pts
+			(xy -0.875 -1.25) (xy 1.5 -1.25) (xy 1.5 1.25) (xy -1.5 1.25) (xy -1.5 -0.625)
+		)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "9217104b-ec54-4f61-b8a7-608263d3baa5")
+	)
+	(fp_text user "${REFERENCE}"
+		(at -0.1775 0 0)
+		(layer "F.Fab")
+		(uuid "c80e348b-9f21-4316-922e-aa4d4160c4f1")
+		(effects
+			(font
+				(size 0.75 0.75)
+				(thickness 0.11)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -1.1625 -0.75)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "692dbd63-1a93-43ec-9e52-167823bceede")
+	)
+	(pad "2" smd roundrect
+		(at -1.1625 -0.25)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "fb0db043-7e00-4432-b8c1-0add438c973a")
+	)
+	(pad "3" smd roundrect
+		(at -1.1625 0.25)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "5d9cfc92-f025-47a9-b0cc-023bc6214021")
+	)
+	(pad "4" smd roundrect
+		(at -1.1625 0.75)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "9f0c3dc8-f81d-4b89-bcf5-5ea515c51044")
+	)
+	(pad "5" smd roundrect
+		(at -0.5 0.9125)
+		(size 0.35 0.625)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "2e59b26e-9e6b-4876-8efb-8738bff1a71a")
+	)
+	(pad "6" smd roundrect
+		(at 0 0.9125)
+		(size 0.35 0.625)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "f98febba-dacb-4e0a-8688-cf1b70752d60")
+	)
+	(pad "7" smd roundrect
+		(at 0.5 0.9125)
+		(size 0.35 0.625)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "4d144a6a-0e95-45bd-89e0-8fa2767d336d")
+	)
+	(pad "8" smd roundrect
+		(at 1.1625 0.75)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "de8a0462-cb3a-4d23-b454-c8d6bcd29d7b")
+	)
+	(pad "9" smd roundrect
+		(at 1.1625 0.25)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "1158023b-c65f-4156-bcc2-ef9f46231ab2")
+	)
+	(pad "10" smd roundrect
+		(at 1.1625 -0.25)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "5c23838d-b670-43a8-928a-3e966950516f")
+	)
+	(pad "11" smd roundrect
+		(at 1.1625 -0.75)
+		(size 0.625 0.35)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "59934b3e-846b-4c98-a3df-00367a37f267")
+	)
+	(pad "12" smd roundrect
+		(at 0.5 -0.9125)
+		(size 0.35 0.625)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "cd0669b6-886e-4833-9457-1e3ead366d96")
+	)
+	(pad "13" smd roundrect
+		(at 0 -0.9125)
+		(size 0.35 0.625)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "66f545cd-e029-4d7a-9880-39c2dc2d4e05")
+	)
+	(pad "14" smd roundrect
+		(at -0.5 -0.9125)
+		(size 0.35 0.625)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "e706ca5d-6e03-4afd-a777-4a88af5e19ca")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Package_LGA.3dshapes/LGA-14_3x2.5mm_P0.5mm_LayoutBorder3x4y.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
