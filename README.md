@@ -31,6 +31,7 @@ git commit -m "Message"
 git push
 ```
 
+<<<<<<< Updated upstream
 
 # Test de contribution
 ## Modification par Bilal
@@ -38,3 +39,14 @@ git push
 
 ---
 *Dernière mise à jour le : 2 février 2026*
+=======
+
+# Test de contribution
+## Modification par Bilal
+> "La configuration SSH et Git est opérationnelle."
+
+---
+*Dernière mise à jour le : 2 février 2026*
+
+ ### choix des composants
+>>>>>>> Stashed changes
