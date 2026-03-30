@@ -62,8 +62,8 @@ all: main-build
 main-build: PCBOT.elf secondary-outputs
 
 # Tool invocations
-PCBOT.elf PCBOT.map: $(OBJS) $(USER_OBJS) /Users/moatsembellhelnemrawi/STM32CubeIDE/workspace_1.19.0/Microprocessor_LAB_24-25_Test_Carte/STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "PCBOT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/moatsembellhelnemrawi/STM32CubeIDE/workspace_1.19.0/Microprocessor_LAB_24-25_Test_Carte/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PCBOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+PCBOT.elf PCBOT.map: $(OBJS) $(USER_OBJS) /Users/moatsembellhelnemrawi/2526_projet1a_pcbot1/Test_TOF/Microprocessor_LAB_24-25_Test_Carte/STM32L476RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "PCBOT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/moatsembellhelnemrawi/2526_projet1a_pcbot1/Test_TOF/Microprocessor_LAB_24-25_Test_Carte/STM32L476RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PCBOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

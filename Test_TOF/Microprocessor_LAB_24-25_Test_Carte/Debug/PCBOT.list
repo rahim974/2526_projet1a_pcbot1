@@ -1458,13 +1458,13 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  // 1. On demande une mesure "A la demande"
+	  //Mesure à la demande
 	  VL53L0X_PerformSingleRangingMeasurement(&dev, &measure);
  8000bde:	4914      	ldr	r1, [pc, #80]	@ (8000c30 <main+0x14c>)
  8000be0:	480d      	ldr	r0, [pc, #52]	@ (8000c18 <main+0x134>)
  8000be2:	f008 fe23 	bl	800982c <VL53L0X_PerformSingleRangingMeasurement>
 
-	  // 2. On vérifie si c'est valide (Status 0 = OK)
+	  //On vérifie si c'est valide (Status 0 = OK)
 	  if (measure.RangeStatus == 0) {
  8000be6:	4b12      	ldr	r3, [pc, #72]	@ (8000c30 <main+0x14c>)
  8000be8:	7e1b      	ldrb	r3, [r3, #24]
@@ -1486,7 +1486,7 @@ int main(void)
  8000c04:	f00c f972 	bl	800ceec <iprintf>
 	  }
 
-	  HAL_Delay(100); // 10 mesures par seconde, c'est parfait pour un robot de salon
+	  HAL_Delay(100); // 10 mesures par secondes
  8000c08:	2064      	movs	r0, #100	@ 0x64
  8000c0a:	f000 fd89 	bl	8001720 <HAL_Delay>
 	  VL53L0X_PerformSingleRangingMeasurement(&dev, &measure);
