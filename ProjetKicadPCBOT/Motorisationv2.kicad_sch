@@ -2539,7 +2539,7 @@
 	)
 	(symbol
 		(lib_id "PCBot_Lib:C_Small")
-		(at 129.54 71.12 180)
+		(at 129.54 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2548,21 +2548,21 @@
 		(fields_autoplaced yes)
 		(uuid "7ac7e023-7156-4edf-94a7-440175d25703")
 		(property "Reference" "C10"
-			(at 132.08 69.8435 0)
+			(at 132.08 69.8562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "100nF"
-			(at 132.08 72.3835 0)
+			(at 132.08 72.3962 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
