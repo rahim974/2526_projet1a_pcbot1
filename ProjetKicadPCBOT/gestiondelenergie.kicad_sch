@@ -30,7 +30,7 @@
 					)
 				)
 			)
-			(property "Footprint" "Package_DFN_QFN:Texas_RQM0029A_VQFN-29_4x4mm_P0.4mm"
+			(property "Footprint" "Package_DFN_QFN:WQFN-24-1EP_4x4mm_P0.5mm_EP2.45x2.45mm_ThermalVias"
 				(at 0 -62.484 0)
 				(effects
 					(font
@@ -361,17 +361,18 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 10.16 22.86 180)
+				(pin power_in line
+					(at 0 -33.02 90)
 					(length 2.54)
-					(name "SW1"
+					(hide yes)
+					(name "PGND"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "18"
+					(number "25"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -391,6 +392,24 @@
 						)
 					)
 					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 10.16 22.86 180)
+					(length 2.54)
+					(name "SW1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -499,7 +518,7 @@
 							)
 						)
 					)
-					(number "13,"
+					(number "13"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3750,12 +3769,6 @@
 		(uuid "a4c5358b-d449-4aa8-8e30-79b1c53b46cb")
 	)
 	(junction
-		(at 168.91 118.11)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a9cd1ea8-07d3-4a66-9afc-a8d9928fe769")
-	)
-	(junction
 		(at 204.47 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3766,6 +3779,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b7ac1399-2df4-490a-86f7-2f85c7acc685")
+	)
+	(junction
+		(at 168.91 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c2b1c112-c035-4f62-8f5a-1c870835caaa")
 	)
 	(junction
 		(at 167.64 77.47)
@@ -3816,6 +3835,16 @@
 			(type default)
 		)
 		(uuid "01a808b3-ab5c-411f-9c8e-1de5bc348067")
+	)
+	(wire
+		(pts
+			(xy 116.84 104.14) (xy 116.84 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b4962d5-03c0-4839-ad52-cd533207e709")
 	)
 	(wire
 		(pts
@@ -3909,6 +3938,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 116.84) (xy 168.91 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2db91efe-1bd3-4dac-b8de-c9f62e8f7674")
+	)
+	(wire
+		(pts
 			(xy 189.23 119.38) (xy 179.07 119.38)
 		)
 		(stroke
@@ -3956,6 +3995,16 @@
 			(type default)
 		)
 		(uuid "41efb22a-b469-4b0b-bae7-c7960d5f2c17")
+	)
+	(wire
+		(pts
+			(xy 116.84 106.68) (xy 130.81 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "41f70846-363d-42a4-9199-cfd88e8a8b2a")
 	)
 	(wire
 		(pts
@@ -4069,16 +4118,6 @@
 	)
 	(wire
 		(pts
-			(xy 116.84 106.68) (xy 130.81 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76885e2b-0bac-49c0-a240-a12f6aa540c3")
-	)
-	(wire
-		(pts
 			(xy 91.44 153.67) (xy 91.44 152.4)
 		)
 		(stroke
@@ -4126,16 +4165,6 @@
 			(type default)
 		)
 		(uuid "86d0316d-ee1f-4256-989f-3354eb2a1432")
-	)
-	(wire
-		(pts
-			(xy 168.91 116.84) (xy 168.91 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90e7f566-d50f-448e-a931-19446cbf6113")
 	)
 	(wire
 		(pts
@@ -4189,6 +4218,16 @@
 	)
 	(wire
 		(pts
+			(xy 151.13 118.11) (xy 168.91 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a46a8e73-6fd5-4975-904a-c95324b7f364")
+	)
+	(wire
+		(pts
 			(xy 171.45 82.55) (xy 176.53 82.55)
 		)
 		(stroke
@@ -4236,16 +4275,6 @@
 			(type default)
 		)
 		(uuid "bab8afd1-c57c-49c9-9395-965bc3c9c619")
-	)
-	(wire
-		(pts
-			(xy 116.84 104.14) (xy 116.84 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd4492e0-a60d-4bc7-bccf-6e7469963033")
 	)
 	(wire
 		(pts
@@ -4416,16 +4445,6 @@
 			(type default)
 		)
 		(uuid "fc80dbb6-3ab3-432d-a4b3-4900da14ec92")
-	)
-	(wire
-		(pts
-			(xy 151.13 118.11) (xy 168.91 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fdbace4a-959b-431b-9758-7826f5298e42")
 	)
 	(wire
 		(pts
@@ -5422,7 +5441,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_DFN_QFN:Texas_RQM0029A_VQFN-29_4x4mm_P0.4mm"
+		(property "Footprint" "Package_DFN_QFN:WQFN-24-1EP_4x4mm_P0.5mm_EP2.45x2.45mm_ThermalVias"
 			(at 140.97 162.814 0)
 			(effects
 				(font
@@ -5494,7 +5513,7 @@
 		(pin "17"
 			(uuid "4ab0f903-6ad9-4caa-b032-389b9d3c51fd")
 		)
-		(pin "18"
+		(pin "20"
 			(uuid "a70d7aa5-e08c-48f4-853b-63866f683b9a")
 		)
 		(pin "19"
@@ -5503,7 +5522,7 @@
 		(pin "16"
 			(uuid "a42d04f0-a8c7-4a0e-8afa-fe682addad51")
 		)
-		(pin "13,"
+		(pin "13"
 			(uuid "6bf000bc-8a71-4929-9d4f-102e862ffee1")
 		)
 		(pin "15"
@@ -5523,6 +5542,9 @@
 		)
 		(pin "11"
 			(uuid "0bc2bd66-f302-471a-b088-818043abef67")
+		)
+		(pin "25"
+			(uuid "3a6d9805-a5d1-44bf-bfaa-7c41cf8ec42f")
 		)
 		(instances
 			(project ""
@@ -6361,7 +6383,7 @@
 	)
 	(symbol
 		(lib_id "PCBot_Lib:R")
-		(at 74.93 102.87 90)
+		(at 74.93 102.87 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6386,7 +6408,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 74.93 104.648 90)
+			(at 74.93 101.092 90)
 			(effects
 				(font
 					(size 1.27 1.27)
