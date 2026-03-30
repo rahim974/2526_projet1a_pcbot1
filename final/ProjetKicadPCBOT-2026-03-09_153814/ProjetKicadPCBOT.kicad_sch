@@ -1,0 +1,186 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "765c8990-6d0e-491e-b579-ac948a2f3698")
+	(paper "A4")
+	(title_block
+		(title "PC BOT")
+		(company "ENSEA")
+	)
+	(lib_symbols)
+	(sheet
+		(at 176.53 100.33)
+		(size 87.63 31.75)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "42531fb6-c8ca-4643-839a-c38050016dad")
+		(property "Sheetname" "Motorisation"
+			(at 176.53 99.6184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Motorisationv2.kicad_sch"
+			(at 176.53 132.6646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "ProjetKicadPCBOT"
+				(path "/765c8990-6d0e-491e-b579-ac948a2f3698"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 31.75 30.48)
+		(size 234.95 48.26)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "99e09b77-cd70-487b-b77f-ae26ee168f00")
+		(property "Sheetname" "STM32"
+			(at 31.75 29.7684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "stm32.kicad_sch"
+			(at 31.75 79.3246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "ProjetKicadPCBOT"
+				(path "/765c8990-6d0e-491e-b579-ac948a2f3698"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 31.75 153.67)
+		(size 111.76 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c4319fe0-756f-4901-8a9c-88b23d8647d2")
+		(property "Sheetname" "Communications et capteurs"
+			(at 31.75 152.9584 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "capteurs.kicad_sch"
+			(at 31.75 179.6546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "ProjetKicadPCBOT"
+				(path "/765c8990-6d0e-491e-b579-ac948a2f3698"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 36.83 100.33)
+		(size 102.87 34.29)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "e09d413a-7658-46ec-8111-8d908516b9ee")
+		(property "Sheetname" "Gestion de l'énergie"
+			(at 36.83 99.6184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "gestiondelenergie.kicad_sch"
+			(at 36.83 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "ProjetKicadPCBOT"
+				(path "/765c8990-6d0e-491e-b579-ac948a2f3698"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
