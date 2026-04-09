@@ -5,8 +5,10 @@
 	(uuid "3bf61754-fefd-4726-828c-32fa84ba0992")
 	(paper "A4")
 	(title_block
-		(title "PC BOT - Gestion de l'énergie")
-		(date "2026-02-08")
+		(title "PCB BOT rahim 974")
+		(date "2026-02-07")
+		(rev "1.0")
+		(company "ENSEA")
 	)
 	(lib_symbols
 		(symbol "BQ25798_final_1"

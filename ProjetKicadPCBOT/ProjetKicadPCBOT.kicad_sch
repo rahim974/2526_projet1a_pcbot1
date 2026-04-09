@@ -5,7 +5,9 @@
 	(uuid "765c8990-6d0e-491e-b579-ac948a2f3698")
 	(paper "A4")
 	(title_block
-		(title "PC BOT")
+		(title "PCB BOT rahim 974")
+		(date "2026-02-07")
+		(rev "1.0")
 		(company "ENSEA")
 	)
 	(lib_symbols)

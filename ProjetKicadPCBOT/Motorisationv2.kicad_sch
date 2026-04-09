@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "c099fcb0-188e-484b-b07d-1c1e6f972a09")
 	(paper "A4")
+	(title_block
+		(title "PCB BOT rahim 974")
+		(date "2026-02-07")
+		(rev "1.0")
+		(company "ENSEA")
+	)
 	(lib_symbols
 		(symbol "PCBot_Lib:+3.3V"
 			(power)
