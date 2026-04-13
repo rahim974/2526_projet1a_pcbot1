@@ -133,6 +133,9 @@ graph LR
 Les fichiers KiCad sont disponibles dans le dossier [`/kicad`](./kicad) du dépôt.
 
 ---
+## Modèle 3D 
+[Lien Onshape](https://cad.onshape.com/documents/e505b045361e9674a6c78442/w/5afe70fb4d167ecf5afd27e4/e/144ee00e31075047748e348d?renderMode=0&uiState=69dce7b2d3075cd451ff5b6a)
+---
 
 ## Buses de communication
 
