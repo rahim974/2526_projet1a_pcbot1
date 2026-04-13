@@ -531,7 +531,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "ProjetKicadPCBOT.dsn",
-      "step": "",
+      "step": "ProjetKicadPCBOT.step",
       "svg": "",
       "vrml": ""
     },
