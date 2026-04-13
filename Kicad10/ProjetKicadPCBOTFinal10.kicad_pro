@@ -538,7 +538,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "pcbot_gerber/",
       "pos_files": "",
       "specctra_dsn": "ProjetKicadPCBOT.dsn",
       "step": "",
