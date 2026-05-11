@@ -128,9 +128,15 @@ graph LR
 
 ---
 
-## Schéma électronique (KiCad)
+## Schématique (KiCad)
 
-Les fichiers KiCad sont disponibles dans le dossier [`/kicad`](./kicad) du dépôt.
+Les fichiers KiCad sont disponibles dans le dossier [/Kicad10](./Kicad10) du dépôt.
+
+---
+
+## BOM
+
+A retrouver ici : [BOM](/Kicad10/bom/ibom.html)
 
 ---
 

@@ -2656,7 +2656,7 @@
 				)
 			)
 		)
-		(property "Value" "1010nF"
+		(property "Value" "10nF"
 			(at 0 1.43 180)
 			(layer "F.Fab")
 			(uuid "4999d09c-e4c4-415b-8543-ab398ab73087")
