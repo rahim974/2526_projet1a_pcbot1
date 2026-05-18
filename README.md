@@ -8,10 +8,14 @@
 
 - [Description du projet](#description-du-projet)
 - [Cahier des charges](#cahier-des-charges)
-- [Architecture matérielle](#architecture-matérielle)
+- [Architecture](#architecture)
 - [Composants](#composants)
-- [Schéma électronique (KiCad)](#schéma-électronique-kicad)
+- [Schématique (KiCad)](#schématique-kicad)
+- [BOM](#bom)
+- [Modèle 3D](#modèle-3d)
 - [Buses de communication](#buses-de-communication)
+- [Dossiers de test (firmware)](#dossiers-de-test-firmware)
+- [API utilisées (dépôts GitHub)](#api-utilisées-dépôts-github)
 - [Mise en route du projet](#mise-en-route-du-projet)
 - [Workflow Git](#workflow-git)
 - [Ressources](#ressources)
@@ -167,6 +171,25 @@ Périphériques connectés :
 Ressources :
 - [Introduction au bus SPI](https://lycrouv-sn.fr/rsc/TdTp/Td/ciel2/Datalink/res/bus_spi.pdf)
 - [Vidéo explicative SPI](https://youtu.be/2hnIKzI6yYE)
+
+---
+
+## API utilisées (dépôts GitHub)
+
+> [!NOTE]
+>
+> Des essais des capteurs suivants sont réalisés préalablement sur **STM32L021K4Tx**. 
+
+
+
+| Composant | API / Driver | Dépôt |
+|---|---|---|
+| Capteur ToF VL53L0X | Driver HAL STM32 | [hoangducquy93/VL530X](https://github.com/hoangducquy93/VL530X) |
+| Accéléromètre LSM6DSOX | Platform Independent Driver (PID) | [STMicroelectronics/lsm6dsox-pid](https://github.com/STMicroelectronics/lsm6dsox-pid) |
+| Exemples LSM6DSOX | STMems Standard C drivers | [STMicroelectronics/STMems_Standard_C_drivers](https://github.com/STMicroelectronics/STMems_Standard_C_drivers) |
+| Module radio nRF24L01+ | Driver HAL STM32 (communautaire) | [controllerstech/nRF24L01](https://github.com/controllerstech/nRF24L01) |
+| HAL STM32G4 | STM32CubeG4 HAL | [STMicroelectronics/stm32g4xx-hal-driver](https://github.com/STMicroelectronics/stm32g4xx-hal-driver) |
+| HAL STM32L0 | STM32CubeL0 HAL | [STMicroelectronics/stm32l0xx-hal-driver](https://github.com/STMicroelectronics/stm32l0xx-hal-driver) |
 
 ---
 
