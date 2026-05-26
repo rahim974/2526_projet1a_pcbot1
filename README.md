@@ -31,6 +31,7 @@ PC_BOT est un robot mobile sur roues embarquant :
 - Un **accéléromètre/gyroscope LSM6DSOX** pour connaître l'orientation, la vitesse et l'accélération
 - Un **module radio nRF24L01+** pour transmettre les données en temps réel à une station de base
 - Un système de **gestion de batterie 18650** avec chargeur intégré (BQ25896)
+Le PC_BOT est un robot capable de cartographier une piéce.Les robots vont se placer sur le périmetre de la salle et il se déplace de manière autonome et communiquent entre eux par un module NRF pour connaitre leurs emplacements resectifs. Ces données devront etre enregistrés sur une base de données et aider à faire la répresentation de la piéce.  
 
 ---
 
@@ -173,14 +174,14 @@ Ressources :
 - [Vidéo explicative SPI](https://youtu.be/2hnIKzI6yYE)
 
 ---
-
+En somme,ce projet etait vraiment intéressant et nous a permis de développer et mettre en application nos compétences en électronique,informatique et gestion de projet. La partie conception de PCB c'est la partie qui nous a le plus pris du temps mais nous a permis de concevoir en autonomie un PCB pour un besoin réel, de faire du soudage tout en essayant de faire le maximum pour que ça soit écologique afin de tenir compte de l'impact environmentaux.
 ## API utilisées (dépôts GitHub)
 
 > [!NOTE]
 >
 > Des essais des capteurs suivants sont réalisés préalablement sur **STM32L021K4Tx**. 
 
-
+## Annexes
 
 | Composant | API / Driver | Dépôt |
 |---|---|---|
