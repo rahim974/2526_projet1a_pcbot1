@@ -1,0 +1,4 @@
+../Core/Src/recepteur.c:20:13:nRF24_WriteRegister	16	static
+../Core/Src/recepteur.c:27:13:nRF24_WriteRegisterBuf	24	static
+../Core/Src/recepteur.c:40:6:Appeler_Initialisation_Recepteur_nRF24	8	static
+../Core/Src/recepteur.c:73:6:Appeler_Lecture_nRF24	32	static

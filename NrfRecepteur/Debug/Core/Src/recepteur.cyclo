@@ -1,0 +1,4 @@
+../Core/Src/recepteur.c:20:13:nRF24_WriteRegister	1
+../Core/Src/recepteur.c:27:13:nRF24_WriteRegisterBuf	2
+../Core/Src/recepteur.c:40:6:Appeler_Initialisation_Recepteur_nRF24	1
+../Core/Src/recepteur.c:73:6:Appeler_Lecture_nRF24	4
