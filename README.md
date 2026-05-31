@@ -189,7 +189,7 @@ En somme,ce projet etait vraiment intéressant et nous a permis de développer e
 >
 > Des essais des capteurs suivants sont réalisés préalablement sur **STM32L021K4Tx**. 
 
-### Annexes
+#### Annexes
 
 | Composant | API / Driver | Dépôt |
 |---|---|---|
