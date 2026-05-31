@@ -184,6 +184,7 @@ https://github.com/user-attachments/assets/09dd88af-9229-46c6-a460-54290523ae45
 https://github.com/user-attachments/assets/6af458ef-1121-4c9b-9ec6-79dbbe4212db
 ### Test unitaire du capteur TOF
 Outils : 1 Capteur TOF, 1 carte STM32,STM32CubeIDE (Putty facultatif)
+
 Le capteur peut détecter des obstacles situé à environ 3cm à moins d'un mètre. Cette portée du capteur est variable en fonction de la luminosité ambiante et est beaucoup plus importante dans l'obsurité. 
 
 Ressources :
