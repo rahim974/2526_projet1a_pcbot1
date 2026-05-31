@@ -154,6 +154,7 @@ A retrouver ici : [BOM](/Kicad10/bom/ibom.html)
 ## Buses de communication
 
 ### Bus I2C — `SDA / SCL`
+Nous avons la communication via le bus I2C pour les capteurs ci-desous. Ce protocole de communication série synchrone semi-duplex permet de faire communiquer plusieurs composants électroniques sur de courtes distances en utilisant un minimum de fils,idéal pour nos pcbot.
 Périphériques connectés :
 - Capteur ToF (VL53L0X/VL53L1X)
 - Accéléromètre LSM6DSOX
@@ -166,22 +167,24 @@ Ressources :
 - [Vidéo explicative I2C](https://youtu.be/15XY4LoQyjc)
 
 ### Bus SPI — `SCK / MISO / MOSI`
+Le bus SPI est l'autre grand standard de communication série synchrone. Contrairement à l'I²C, il est taillé pour la vitesse et fonctionne en full-duplex. Cette technologie permet à nos modules radio de communiquer simultanément mais nécesite un montage plus complèxe et beaucoup plus de fils pour le mettre en place. 
 Périphériques connectés :
 - Module radio nRF24L01+
+### Test du fonctionnement du module NRF
 
 Ressources :
 - [Introduction au bus SPI](https://lycrouv-sn.fr/rsc/TdTp/Td/ciel2/Datalink/res/bus_spi.pdf)
 - [Vidéo explicative SPI](https://youtu.be/2hnIKzI6yYE)
 
 ---
-En somme,ce projet etait vraiment intéressant et nous a permis de développer et mettre en application nos compétences en électronique,informatique et gestion de projet. La partie conception de PCB c'est la partie qui nous a le plus pris du temps mais nous a permis de concevoir en autonomie un PCB pour un besoin réel, de faire du soudage tout en essayant de faire le maximum pour que ça soit écologique afin de tenir compte de l'impact environmentaux.
+En somme,ce projet etait vraiment intéressant et nous a permis de développer et mettre en application nos compétences en électronique,informatique et gestion de projet. La partie conception de PCB c'est la partie qui nous a le plus pris du temps mais nous a permis de concevoir en autonomie un PCB pour un besoin réel selon un cahier de charges données, de faire du soudage tout en essayant de faire le maximum pour que ça soit écologique afin de tenir compte de l'impact environmentaux.Nous en retenons egalement que le soudage des composants ainsi que le routage est une étape très importante pour le bon fonctionnement du Pcb, une fausse mainipulation induit très rapidement à un court-circuit endommageant la carte et au pire tout les capteurs qui y sont montées.
 ## API utilisées (dépôts GitHub)
 
 > [!NOTE]
 >
 > Des essais des capteurs suivants sont réalisés préalablement sur **STM32L021K4Tx**. 
 
-## Annexes
+### Annexes
 
 | Composant | API / Driver | Dépôt |
 |---|---|---|
