@@ -172,6 +172,11 @@ Périphériques connectés :
 - Module radio nRF24L01+
 ### Test du fonctionnement du module NRF
 
+https://github.com/user-attachments/assets/09dd88af-9229-46c6-a460-54290523ae45
+
+https://github.com/user-attachments/assets/6af458ef-1121-4c9b-9ec6-79dbbe4212db
+
+
 Ressources :
 - [Introduction au bus SPI](https://lycrouv-sn.fr/rsc/TdTp/Td/ciel2/Datalink/res/bus_spi.pdf)
 - [Vidéo explicative SPI](https://youtu.be/2hnIKzI6yYE)
