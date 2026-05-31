@@ -14,6 +14,7 @@
 - [BOM](#bom)
 - [Modèle 3D](#modèle-3d)
 - [Buses de communication](#buses-de-communication)
+- [Test du module radio](#test-du-module-radio)
 - [Dossiers de test (firmware)](#dossiers-de-test-firmware)
 - [API utilisées (dépôts GitHub)](#api-utilisées-dépôts-github)
 - [Mise en route du projet](#mise-en-route-du-projet)
@@ -151,7 +152,7 @@ A retrouver ici : [BOM](/Kicad10/bom/ibom.html)
 
 ---
 
-## Buses de communication
+## Bus de communication
 
 ### Bus I2C — `SDA / SCL`
 Nous avons la communication via le bus I2C pour les capteurs ci-desous. Ce protocole de communication série synchrone semi-duplex permet de faire communiquer plusieurs composants électroniques sur de courtes distances en utilisant un minimum de fils,idéal pour nos pcbot.
@@ -170,6 +171,7 @@ Ressources :
 Le bus SPI est l'autre grand standard de communication série synchrone. Contrairement à l'I²C, il est taillé pour la vitesse et fonctionne en full-duplex. Cette technologie permet à nos modules radio de communiquer simultanément mais nécesite un montage plus complèxe et beaucoup plus de fils pour le mettre en place. 
 Périphériques connectés :
 - Module radio nRF24L01+
+# Test du module radio  
 ### Test du fonctionnement du module NRF
 
 https://github.com/user-attachments/assets/09dd88af-9229-46c6-a460-54290523ae45
