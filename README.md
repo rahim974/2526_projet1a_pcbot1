@@ -14,7 +14,7 @@
 - [BOM](#bom)
 - [Modèle 3D](#modèle-3d)
 - [Buses de communication](#buses-de-communication)
-- [Test du module radio](#test-du-module-radio)
+- [Test unitaire de certains capteurs](#tests-unitaires-de-certains-capteurs)
 - [Dossiers de test (firmware)](#dossiers-de-test-firmware)
 - [API utilisées (dépôts GitHub)](#api-utilisées-dépôts-github)
 - [Mise en route du projet](#mise-en-route-du-projet)
@@ -94,6 +94,10 @@ graph LR
 
 ## Composants
 
+L'architecture matérielle choisie est spécifiquement dimensionnée pour permettre au pcbot de **cartographier son environnement en temps réel** :
+* ** Le **capteur ToF (VL53L0X/1X)** mesure les distances précises face aux obstacles, tandis que l'**accéléromètre/gyroscope (LSM6DSOX)** fournit l'odométrie (position et orientation du robot dans l'espace). Ces données transitent rapidement sur le bus I²C vers le STM.
+Grâce à sa mémoire et sa vitesse de calcul, le microcontrôleur fusionne ces coordonnées pour dessiner une carte 2D de l'espace parcouru.
+Cette carte de l'environnement est transmise en temps réel à une station de base ou une interface graphique externe via le **module radio nRF24L01+** ,elle est également utilisé pour permettre aux pcbot de communiquer entre eux. Le protocole SPI est ici indispensable pour assurer le débit nécessaire à l'envoi continu de la matrice de la carte.
 ### Microcontrôleur
 | Composant | Référence | Rôle |
 |---|---|---|
@@ -171,13 +175,14 @@ Ressources :
 Le bus SPI est l'autre grand standard de communication série synchrone. Contrairement à l'I²C, il est taillé pour la vitesse et fonctionne en full-duplex. Cette technologie permet à nos modules radio de communiquer simultanément mais nécesite un montage plus complèxe et beaucoup plus de fils pour le mettre en place. 
 Périphériques connectés :
 - Module radio nRF24L01+
-# Test du module radio  
-### Test du fonctionnement du module NRF
+# Tests unitaires de certains capteurs  
+### Test unitaire du fonctionnement du module NRF
 
 https://github.com/user-attachments/assets/09dd88af-9229-46c6-a460-54290523ae45
 
 https://github.com/user-attachments/assets/6af458ef-1121-4c9b-9ec6-79dbbe4212db
-
+### Test unitaire du capteur TOF
+Le capteur peut détecter des obstacles situé à environ 3cm à moins d'un mètre. Cette portée du capteur est variable en fonction de la luminosité ambiante et est beaucoup plus importante dans l'obsurité. 
 
 Ressources :
 - [Introduction au bus SPI](https://lycrouv-sn.fr/rsc/TdTp/Td/ciel2/Datalink/res/bus_spi.pdf)
