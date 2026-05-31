@@ -185,14 +185,14 @@ https://github.com/user-attachments/assets/6af458ef-1121-4c9b-9ec6-79dbbe4212db
 ### Test unitaire du capteur TOF
 Outils : 1 Capteur TOF, 1 carte STM32,STM32CubeIDE (Putty facultatif)
 
-Le capteur peut détecter des obstacles situé à environ 3cm à moins d'un mètre. Cette portée du capteur est variable en fonction de la luminosité ambiante et est beaucoup plus importante dans l'obsurité. 
+Le capteur peut détecter des obstacles situés à environ 3cm à moins d'un mètre. Cette portée du capteur est variable en fonction de la luminosité ambiante et est beaucoup plus importante dans l'obscurité. 
 
 Ressources :
 - [Introduction au bus SPI](https://lycrouv-sn.fr/rsc/TdTp/Td/ciel2/Datalink/res/bus_spi.pdf)
 - [Vidéo explicative SPI](https://youtu.be/2hnIKzI6yYE)
 
 ---
-En somme,ce projet etait vraiment intéressant et nous a permis de développer et mettre en application nos compétences en électronique,informatique et gestion de projet. La partie conception de PCB c'est la partie qui nous a le plus pris du temps mais nous a permis de concevoir en autonomie un PCB pour un besoin réel selon un cahier de charges données, de faire du soudage tout en essayant de faire le maximum pour que ça soit écologique afin de tenir compte de l'impact environmentaux.Nous en retenons egalement que le soudage des composants ainsi que le routage est une étape très importante pour le bon fonctionnement du Pcb, une fausse mainipulation induit très rapidement à un court-circuit endommageant la carte et au pire tout les capteurs qui y sont montées.
+En somme,ce projet etait vraiment intéressant et nous a permis de développer et mettre en application nos compétences en électronique,informatique et gestion de projet. La partie conception de PCB c'est la partie qui nous a le plus pris du temps mais nous a permis de concevoir en autonomie un PCB pour un besoin réel selon un cahier de charges donné, de faire du soudage tout en essayant de faire le maximum pour que ça soit écologique afin de tenir compte de l'impact environmental.Nous en retenons egalement que le soudage des composants ainsi que le routage est une étape très importante pour le bon fonctionnement du Pcb, une fausse manipulation induit très rapidement à un court-circuit endommageant la carte et au pire tout les capteurs qui y sont montées.
 ## API utilisées (dépôts GitHub)
 
 > [!NOTE]
