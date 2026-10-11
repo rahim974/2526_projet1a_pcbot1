@@ -1,51 +1,69 @@
-# PC_BOT — Robot mobile autonome avec télémétrie sans fil
+# PC_BOT — Autonomous Mobile Robot with Wireless Telemetry
 
-> Projet 1A — Robot mobile capable de transmettre en continu sa position, vitesse, accélération et les distances aux obstacles à une station de base via liaison radio.
+> Year-1 project (ENSEA) — A mobile robot designed to transmit its position, speed, acceleration and distances to obstacles to a base station over a radio link.
+
+*Version française : [README.fr.md](./README.fr.md)*
 
 ---
 
-## Table des matières
+## Table of Contents
 
-- [Description du projet](#description-du-projet)
-- [Cahier des charges](#cahier-des-charges)
+- [Project Description](#project-description)
+- [Project Status](#project-status)
+- [Requirements](#requirements)
 - [Architecture](#architecture)
-- [Composants](#composants)
-- [Schématique (KiCad)](#schématique-kicad)
+- [Components](#components)
+- [Schematic (KiCad)](#schematic-kicad)
 - [BOM](#bom)
-- [Modèle 3D](#modèle-3d)
-- [Buses de communication](#buses-de-communication)
-- [Test unitaire de certains capteurs](#tests-unitaires-de-certains-capteurs)
-- [Dossiers de test (firmware)](#dossiers-de-test-firmware)
-- [API utilisées (dépôts GitHub)](#api-utilisées-dépôts-github)
-- [Mise en route du projet](#mise-en-route-du-projet)
-- [Workflow Git](#workflow-git)
-- [Ressources](#ressources)
+- [3D Model](#3d-model)
+- [Communication Buses](#communication-buses)
+- [Unit Tests of Selected Sensors](#unit-tests-of-selected-sensors)
+- [Conclusion](#conclusion)
+- [APIs Used (GitHub Repositories)](#apis-used-github-repositories)
+- [Getting Started](#getting-started)
+- [Git Workflow](#git-workflow)
+- [Resources](#resources)
 
 ---
 
-## Description du projet
+## Project Description
 
-PC_BOT est un robot mobile sur roues embarquant :
+PC_BOT is a wheeled mobile robot that embeds:
 
-- Un **MCU STM32G431KBT6** comme unité centrale de traitement
-- Un **capteur ToF** pour mesurer les distances aux obstacles
-- Un **accéléromètre/gyroscope LSM6DSOX** pour connaître l'orientation, la vitesse et l'accélération
-- Un **module radio nRF24L01+** pour transmettre les données en temps réel à une station de base
-- Un système de **gestion de batterie 18650** avec chargeur intégré (BQ25896)
-Le PC_BOT est un robot capable de cartographier une piéce.Les robots vont se placer sur le périmetre de la salle et il se déplace de manière autonome et communiquent entre eux par un module NRF pour connaitre leurs emplacements resectifs. Ces données devront etre enregistrés sur une base de données et aider à faire la répresentation de la piéce.  
+- An **STM32G431KBT6 MCU** as the central processing unit
+- A **ToF sensor** to measure distances to obstacles
+- A **LSM6DSOX accelerometer/gyroscope** to obtain orientation, speed and acceleration
+- A **nRF24L01+ radio module** to transmit data in real time to a base station
+- An **18650 battery management system** with an integrated charger (BQ25896)
+
+The long-term goal of PC_BOT is to map a room. The robots position themselves around the perimeter of the room, then move autonomously and communicate with each other through an nRF module to know their respective positions. This data is meant to be stored in a database and used to build a representation of the room. See [Project Status](#project-status) for what is implemented so far.
 
 ---
 
-## Cahier des charges
+## Project Status
 
-| Fonction | Description |
+| Item | Status |
 |---|---|
-| Mobilité | Le robot doit rouler de façon autonome |
-| Perception | Détecter les obstacles et mesurer les distances (capteur ToF) |
-| Localisation | Connaître sa vitesse, accélération et position (IMU) |
-| Énergie | Batterie rechargeable 18650 via prise secteur/USB |
-| Communication | Transmission continue vers la station de base (nRF24L01+) |
-| Données transmises | Angle d'inclinaison, vitesse, accélération, position, distances obstacles |
+| KiCad schematic, PCB and BOM | Done |
+| 3D model (Onshape) | Done |
+| Unit test of the nRF24L01+ radio link between two STM32 boards | Done |
+| Unit test of the ToF sensor | Done |
+| Communication between robots (nRF network) | Not yet implemented |
+| 2D map of the room built from ToF and IMU data | Not yet implemented |
+| Storage of the data in a database and representation of the room | Not yet implemented |
+
+---
+
+## Requirements
+
+| Function | Description |
+|---|---|
+| Mobility | The robot must drive autonomously |
+| Perception | Detect obstacles and measure distances (ToF sensor) |
+| Localization | Know its speed, acceleration and position (IMU) |
+| Energy | Rechargeable 18650 battery, charged through mains/USB |
+| Communication | Continuous transmission to the base station (nRF24L01+) |
+| Transmitted data | Tilt angle, speed, acceleration, position, distances to obstacles |
 
 ---
 
@@ -54,174 +72,201 @@ Le PC_BOT est un robot capable de cartographier une piéce.Les robots vont se pl
 ```mermaid
 graph LR
     MCU[STM32G431KBT6]
-    
+
     subgraph BUS_I2C [Labels: SDA / SCL]
-        TOF[Capteur TOF]
-        IMU[Accéléromètre LSM6DSOX]
-        BQ[Chargeur BQ25896]
+        TOF[ToF sensor]
+        IMU[LSM6DSOX accelerometer]
+        BQ[BQ25896 charger]
     end
 
-    
     subgraph BUS_SPI [Labels: SCK / MISO / MOSI]
         NRF[nRF24L01]
     end
 
     subgraph POWER [Labels: VCC / GND]
-        BAT[Batterie 18650]
-        USB[Prise Secteur/USB]
+        BAT[18650 battery]
+        USB[Mains / USB]
     end
 
-
     subgraph MOTORS [Labels: PWM]
-        DRV[Driver DRV8411A]
-        M1[Moteurs CC]
+        DRV[DRV8411A driver]
+        M1[DC motors]
     end
 
     MCU -- "I2C" --- BUS_I2C
     MCU -- "SPI" --- BUS_SPI
-    MCU -- "PWM (Vitesse)" --- DRV
+    MCU -- "PWM (speed)" --- DRV
     DRV --- M1
-    
-    USB -- "Charge" --- BQ
-    BAT -- "Energie" --- BQ
-    BQ -- "Alimentation" --- MCU
-    
 
-    NRF -. "Radio" .-> Station[Station de Base]
+    USB -- "Charging" --- BQ
+    BAT -- "Energy" --- BQ
+    BQ -- "Power supply" --- MCU
+
+    NRF -. "Radio" .-> Station[Base station]
 ```
 
 ---
 
-## Composants
+## Components
 
-L'architecture matérielle choisie est spécifiquement dimensionnée pour permettre au pcbot de **cartographier son environnement en temps réel** :
-* ** Le **capteur ToF (VL53L0X/1X)** mesure les distances précises face aux obstacles, tandis que l'**accéléromètre/gyroscope (LSM6DSOX)** fournit l'odométrie (position et orientation du robot dans l'espace). Ces données transitent rapidement sur le bus I²C vers le STM.
-Grâce à sa mémoire et sa vitesse de calcul, le microcontrôleur fusionne ces coordonnées pour dessiner une carte 2D de l'espace parcouru.
-Cette carte de l'environnement est transmise en temps réel à une station de base ou une interface graphique externe via le **module radio nRF24L01+** ,elle est également utilisé pour permettre aux pcbot de communiquer entre eux. Le protocole SPI est ici indispensable pour assurer le débit nécessaire à l'envoi continu de la matrice de la carte.
-### Microcontrôleur
-| Composant | Référence | Rôle |
-|---|---|---|
-| MCU | STM32G431KBT6 | Unité centrale |
+The chosen hardware architecture is sized to let PC_BOT eventually **map its environment in real time** (this mapping is not implemented yet, see [Project Status](#project-status)):
 
-### Communication & Capteurs
-| Composant | Référence KiCad | Lien |
-|---|---|---|
-| Module radio | nRF24L01+ — `Conn_02x04_Odd_Even` | [Tutorial nRF24L01](https://passionelectronique.fr/tutorial-nrf24l01/) |
-| Capteur ToF | VL53L0X / VL53L1X — `J1 TOF` | — |
-| Accéléromètre | LSM6DSOX — `Sensor_Motion:LSM6DSOX` | [SnapEDA](https://www.snapeda.com/parts/LSM6DSOX/STMicroelectronics/view-part/) · [Datasheet](https://www.st.com/en/mems-and-sensors/lsm6dsox.html) |
+- The **ToF sensor (VL53L0X/1X)** measures precise distances to obstacles in front of the robot, while the **accelerometer/gyroscope (LSM6DSOX)** provides odometry (position and orientation of the robot in space). This data travels quickly over the I²C bus to the STM32.
+- Thanks to its memory and computing speed, the microcontroller is intended to fuse these coordinates to draw a 2D map of the space covered.
+- This map is meant to be transmitted in real time to a base station or an external graphical interface through the **nRF24L01+ radio module**, which is also intended to let the PC_BOTs communicate with each other. The SPI protocol is essential here to provide the throughput needed for the continuous transmission of the map matrix.
 
-### Motorisation
-| Composant | Référence KiCad | Lien |
-|---|---|---|
-| Driver moteur | DRV8411A — `Interface_Expansion:DRV8411APWPR` | [SnapEDA](https://www.snapeda.com/parts/DRV8411APWPR/Texas%20Instruments/view-part/) · [Datasheet](https://www.ti.com/lit/ds/symlink/drv8411a.pdf) |
-| Moteurs CC | Motoréducteur Maqueen V5 | [Gotronic](https://www.gotronic.fr/art-motoreducteur-maqueen-v5-48529.htm) |
-| Connecteurs moteurs | `Screw_Terminal_01x02` (×2) | — |
+### Microcontroller
 
-### Gestion de l'énergie
-| Composant | Référence KiCad | Lien |
+| Component | Reference | Role |
 |---|---|---|
-| Chargeur batterie | BQ25896 — `Power_Management:BQ25896` | [SnapEDA](https://www.snapeda.com/parts/BQ25896/Texas%20Instruments/view-part/) · [Datasheet](https://www.ti.com/lit/ds/symlink/bq25896.pdf) |
-| Régulateur 3.3V | AP2112K-3.3 (U5) | — |
-| Connecteur USB-C | `USB_C_Receptacle_USB2.0_16P` (J6) | — |
-| Batterie | Samsung INR18650-35E (3400mAh) | [NKON](https://www.nkon.nl/fr/samsung-inr18650-35e-3400mah-8a.html) |
-| Inductance | 1μH — `Inductor_SMD:L_6.3x6.3mm` (L1) | Confirmé datasheet BQ25896 |
-| Connecteur batterie | `Connector:Conn_01x02` (J7) | — |
+| MCU | STM32G431KBT6 | Central processing unit |
 
-### Composants passifs & interface
-| Composant | Valeur / Référence KiCad | Remarque |
+### Communication & Sensors
+
+| Component | KiCad reference | Link |
 |---|---|---|
-| Résistances pull-up I2C | 4.7kΩ (R1, R2) | Entre SDA/SCL et +3.3V |
-| Bouton alimentation | `Switch:SW_Push` (SW1) | Interrupteur STM32 |
-| Bouton QON chargeur | `Switch:SW_Push` (SW3) | Mise en marche BQ25896 |
-| Connecteur ST-LINK | `Conn_ST_STDC14` (J3) | VCC, SWDIO, SWCLK, NRST, GND |
-| LEDs | D1, D2 avec R10, R11 = 2.2kΩ | Signalisation état chargeur |
+| Radio module | nRF24L01+ — `Conn_02x04_Odd_Even` | [nRF24L01 tutorial (French)](https://passionelectronique.fr/tutorial-nrf24l01/) |
+| ToF sensor | VL53L0X / VL53L1X — `J1 TOF` | — |
+| Accelerometer | LSM6DSOX — `Sensor_Motion:LSM6DSOX` | [SnapEDA](https://www.snapeda.com/parts/LSM6DSOX/STMicroelectronics/view-part/) · [Datasheet](https://www.st.com/en/mems-and-sensors/lsm6dsox.html) |
+
+### Motor Drive
+
+| Component | KiCad reference | Link |
+|---|---|---|
+| Motor driver | DRV8411A — `Interface_Expansion:DRV8411APWPR` | [SnapEDA](https://www.snapeda.com/parts/DRV8411APWPR/Texas%20Instruments/view-part/) · [Datasheet](https://www.ti.com/lit/ds/symlink/drv8411a.pdf) |
+| DC motors | Maqueen V5 gear motor | [Gotronic](https://www.gotronic.fr/art-motoreducteur-maqueen-v5-48529.htm) |
+| Motor connectors | `Screw_Terminal_01x02` (×2) | — |
+
+### Power Management
+
+| Component | KiCad reference | Link |
+|---|---|---|
+| Battery charger | BQ25896 — `Power_Management:BQ25896` | [SnapEDA](https://www.snapeda.com/parts/BQ25896/Texas%20Instruments/view-part/) · [Datasheet](https://www.ti.com/lit/ds/symlink/bq25896.pdf) |
+| 3.3 V regulator | AP2112K-3.3 (U5) | — |
+| USB-C connector | `USB_C_Receptacle_USB2.0_16P` (J6) | — |
+| Battery | Samsung INR18650-35E (3400 mAh) | [NKON](https://www.nkon.nl/fr/samsung-inr18650-35e-3400mah-8a.html) |
+| Inductor | 1 µH — `Inductor_SMD:L_6.3x6.3mm` (L1) | Confirmed in the BQ25896 datasheet |
+| Battery connector | `Connector:Conn_01x02` (J7) | — |
+
+### Passive Components & Interface
+
+| Component | Value / KiCad reference | Note |
+|---|---|---|
+| I2C pull-up resistors | 4.7 kΩ (R1, R2) | Between SDA/SCL and +3.3 V |
+| Power button | `Switch:SW_Push` (SW1) | STM32 power switch |
+| Charger QON button | `Switch:SW_Push` (SW3) | Turns on the BQ25896 |
+| ST-LINK connector | `Conn_ST_STDC14` (J3) | VCC, SWDIO, SWCLK, NRST, GND |
+| LEDs | D1, D2 with R10, R11 = 2.2 kΩ | Charger status indication |
 
 ---
 
-## Schématique (KiCad)
+## Schematic (KiCad)
 
-Les fichiers KiCad sont disponibles dans le dossier [/Kicad10](./Kicad10) du dépôt.
+The KiCad files are available in the [/Kicad10](./Kicad10) folder of the repository.
 
 ---
 
 ## BOM
 
-A retrouver ici : [BOM](/Kicad10/bom/ibom.html)
+Available here: [BOM](/Kicad10/bom/ibom.html)
 
 ---
 
-## Modèle 3D 
+## 3D Model
 
-[Lien Onshape](https://cad.onshape.com/documents/e505b045361e9674a6c78442/w/5afe70fb4d167ecf5afd27e4/e/144ee00e31075047748e348d?renderMode=0&uiState=69dce7b2d3075cd451ff5b6a)
+[Onshape link](https://cad.onshape.com/documents/e505b045361e9674a6c78442/w/5afe70fb4d167ecf5afd27e4/e/144ee00e31075047748e348d?renderMode=0&uiState=69dce7b2d3075cd451ff5b6a)
 
 ---
 
-## Bus de communication
+## Communication Buses
 
-### Bus I2C — `SDA / SCL`
-Nous avons la communication via le bus I2C pour les capteurs ci-desous. Ce protocole de communication série synchrone semi-duplex permet de faire communiquer plusieurs composants électroniques sur de courtes distances en utilisant un minimum de fils,idéal pour nos pcbot.
-Périphériques connectés :
-- Capteur ToF (VL53L0X/VL53L1X)
-- Accéléromètre LSM6DSOX
-- Chargeur BQ25896
+### I2C Bus — `SDA / SCL`
 
-> Résistances de pull-up nécessaires : **4.7kΩ** vers +3.3V (R1, R2).
+The sensors below communicate over the I2C bus. This synchronous, half-duplex serial protocol lets several electronic components communicate over short distances with a minimum of wires, which is ideal for our PC_BOTs.
 
-Ressources :
-- [Introduction au bus I2C — Yoctopuce](https://www.yoctopuce.com/FR/article/petite-introduction-au-bus-i2c)
-- [Vidéo explicative I2C](https://youtu.be/15XY4LoQyjc)
+Connected peripherals:
 
-### Bus SPI — `SCK / MISO / MOSI`
-Le bus SPI est l'autre grand standard de communication série synchrone. Contrairement à l'I²C, il est taillé pour la vitesse et fonctionne en full-duplex. Cette technologie permet à nos modules radio de communiquer simultanément mais nécesite un montage plus complèxe et beaucoup plus de fils pour le mettre en place. 
-Périphériques connectés :
-- Module radio nRF24L01+
-# Tests unitaires de certains capteurs  
-### Test unitaire du fonctionnement du module NRF
-**Outils** : 2 STM32,2 capteurs NRF,Putty,STM32CubeIde
+- ToF sensor (VL53L0X/VL53L1X)
+- LSM6DSOX accelerometer
+- BQ25896 charger
+
+> Pull-up resistors are required: **4.7 kΩ** to +3.3 V (R1, R2).
+
+Resources:
+
+- [Introduction to the I2C bus — Yoctopuce (French)](https://www.yoctopuce.com/FR/article/petite-introduction-au-bus-i2c)
+- [I2C explainer video](https://youtu.be/15XY4LoQyjc)
+
+### SPI Bus — `SCK / MISO / MOSI`
+
+SPI is the other major standard for synchronous serial communication. Unlike I²C, it is built for speed and works in full duplex. This lets our radio modules communicate simultaneously, but it requires a more complex setup and many more wires.
+
+Connected peripherals:
+
+- nRF24L01+ radio module
+
+Resources:
+
+- [Introduction to the SPI bus (French)](https://lycrouv-sn.fr/rsc/TdTp/Td/ciel2/Datalink/res/bus_spi.pdf)
+- [SPI explainer video](https://youtu.be/2hnIKzI6yYE)
+
+---
+
+## Unit Tests of Selected Sensors
+
+### Unit test of the nRF module
+
+**Tools**: 2 STM32 boards, 2 nRF modules, PuTTY, STM32CubeIDE
 
 https://github.com/user-attachments/assets/09dd88af-9229-46c6-a460-54290523ae45
 
 https://github.com/user-attachments/assets/6af458ef-1121-4c9b-9ec6-79dbbe4212db
-### Test unitaire du capteur TOF
-Outils : 1 Capteur TOF, 1 carte STM32,STM32CubeIDE (Putty facultatif)
 
-Le capteur peut détecter des obstacles situés à environ 3cm à moins d'un mètre. Cette portée du capteur est variable en fonction de la luminosité ambiante et est beaucoup plus importante dans l'obscurité. 
+### Unit test of the ToF sensor
 
-Ressources :
-- [Introduction au bus SPI](https://lycrouv-sn.fr/rsc/TdTp/Td/ciel2/Datalink/res/bus_spi.pdf)
-- [Vidéo explicative SPI](https://youtu.be/2hnIKzI6yYE)
+**Tools**: 1 ToF sensor, 1 STM32 board, STM32CubeIDE (PuTTY optional)
+
+The sensor can detect obstacles located from about 3 cm to just under one meter. Its range varies with ambient light and is much greater in the dark.
 
 ---
-En somme,ce projet etait vraiment intéressant et nous a permis de développer et mettre en application nos compétences en électronique,informatique et gestion de projet. La partie conception de PCB c'est la partie qui nous a le plus pris du temps mais nous a permis de concevoir en autonomie un PCB pour un besoin réel selon un cahier de charges donné, de faire du soudage tout en essayant de faire le maximum pour que ça soit écologique afin de tenir compte de l'impact environmental.Nous en retenons egalement que le soudage des composants ainsi que le routage est une étape très importante pour le bon fonctionnement du Pcb, une fausse manipulation induit très rapidement à un court-circuit endommageant la carte et au pire tout les capteurs qui y sont montées.
-## API utilisées (dépôts GitHub)
+
+## Conclusion
+
+Overall, this project was really interesting and allowed us to develop and apply our skills in electronics, computer science and project management. PCB design took us the most time, but it allowed us to independently design a PCB for a real need, following a given specification, and to do the soldering while trying to be as eco-friendly as possible to account for environmental impact.
+
+We also learned that soldering the components and routing the board are very important steps for the PCB to work properly: a single wrong move can quickly cause a short circuit that damages the board and, in the worst case, all the sensors mounted on it.
+
+---
+
+## APIs Used (GitHub Repositories)
 
 > [!NOTE]
 >
-> Des essais des capteurs suivants sont réalisés préalablement sur **STM32L021K4Tx**. 
+> The following sensors were first tested on an **STM32L021K4Tx**.
 
-# Annexes
+### Appendix
 
-| Composant | API / Driver | Dépôt |
+| Component | API / Driver | Repository |
 |---|---|---|
-| Capteur ToF VL53L0X | Driver HAL STM32 | [hoangducquy93/VL530X](https://github.com/hoangducquy93/VL530X) |
-| Accéléromètre LSM6DSOX | Platform Independent Driver (PID) | [STMicroelectronics/lsm6dsox-pid](https://github.com/STMicroelectronics/lsm6dsox-pid) |
-| Exemples LSM6DSOX | STMems Standard C drivers | [STMicroelectronics/STMems_Standard_C_drivers](https://github.com/STMicroelectronics/STMems_Standard_C_drivers) |
-| Module radio nRF24L01+ | Driver HAL STM32 (communautaire) | [controllerstech/nRF24L01](https://github.com/controllerstech/nRF24L01) |
-| HAL STM32G4 | STM32CubeG4 HAL | [STMicroelectronics/stm32g4xx-hal-driver](https://github.com/STMicroelectronics/stm32g4xx-hal-driver) |
-| HAL STM32L0 | STM32CubeL0 HAL | [STMicroelectronics/stm32l0xx-hal-driver](https://github.com/STMicroelectronics/stm32l0xx-hal-driver) |
+| ToF sensor VL53L0X | STM32 HAL driver | [hoangducquy93/VL530X](https://github.com/hoangducquy93/VL530X) |
+| LSM6DSOX accelerometer | Platform Independent Driver (PID) | [STMicroelectronics/lsm6dsox-pid](https://github.com/STMicroelectronics/lsm6dsox-pid) |
+| LSM6DSOX examples | STMems Standard C drivers | [STMicroelectronics/STMems_Standard_C_drivers](https://github.com/STMicroelectronics/STMems_Standard_C_drivers) |
+| nRF24L01+ radio module | STM32 HAL driver (community) | [controllerstech/nRF24L01](https://github.com/controllerstech/nRF24L01) |
+| STM32G4 HAL | STM32CubeG4 HAL | [STMicroelectronics/stm32g4xx-hal-driver](https://github.com/STMicroelectronics/stm32g4xx-hal-driver) |
+| STM32L0 HAL | STM32CubeL0 HAL | [STMicroelectronics/stm32l0xx-hal-driver](https://github.com/STMicroelectronics/stm32l0xx-hal-driver) |
 
 ---
 
-## Mise en route du projet
+## Getting Started
 
-### Prérequis
+### Prerequisites
 
-- [KiCad](https://www.kicad.org/) (conception du schéma et du PCB)
-- [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) (développement firmware)
-- ST-LINK V2 (programmation et debug du STM32)
-- Git + clé SSH configurée sur GitHub
+- [KiCad](https://www.kicad.org/) (schematic and PCB design)
+- [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) (firmware development)
+- ST-LINK V2 (STM32 programming and debugging)
+- Git + an SSH key configured on GitHub
 
-### Cloner le projet
+### Clone the Project
 
 ```bash
 git clone git@github.com:rahim974/2526_projet1a_pcbot1.git
@@ -230,30 +275,30 @@ cd 2526_projet1a_pcbot1
 
 ---
 
-## Workflow Git
+## Git Workflow
 
 ```bash
-# Récupérer la dernière version
+# Get the latest version
 git pull
 
-# Vérifier l'état de vos modifications
+# Check the state of your changes
 git status
 
-# Ajouter et pousser vos modifications
+# Add and push your changes
 git add .
-git commit -m "feat: description de la modification"
+git commit -m "feat: description of the change"
 git push
 ```
 
 ---
 
-## Ressources
+## Resources
 
-| Sujet | Lien |
+| Topic | Link |
 |---|---|
-| Datasheet LSM6DSOX | [st.com](https://www.st.com/en/mems-and-sensors/lsm6dsox.html) |
-| Datasheet DRV8411A | [ti.com](https://www.ti.com/lit/ds/symlink/drv8411a.pdf) |
-| Datasheet BQ25896 | [ti.com](https://www.ti.com/lit/ds/symlink/bq25896.pdf) |
-| Tutorial nRF24L01 | [passionelectronique.fr](https://passionelectronique.fr/tutorial-nrf24l01/) |
-| Batterie 18650 Samsung | [nkon.nl](https://www.nkon.nl/fr/samsung-inr18650-35e-3400mah-8a.html) |
-| Moteur CC Maqueen V5 | [gotronic.fr](https://www.gotronic.fr/art-motoreducteur-maqueen-v5-48529.htm) |
+| LSM6DSOX datasheet | [st.com](https://www.st.com/en/mems-and-sensors/lsm6dsox.html) |
+| DRV8411A datasheet | [ti.com](https://www.ti.com/lit/ds/symlink/drv8411a.pdf) |
+| BQ25896 datasheet | [ti.com](https://www.ti.com/lit/ds/symlink/bq25896.pdf) |
+| nRF24L01 tutorial (French) | [passionelectronique.fr](https://passionelectronique.fr/tutorial-nrf24l01/) |
+| Samsung 18650 battery | [nkon.nl](https://www.nkon.nl/fr/samsung-inr18650-35e-3400mah-8a.html) |
+| Maqueen V5 DC motor | [gotronic.fr](https://www.gotronic.fr/art-motoreducteur-maqueen-v5-48529.htm) |
